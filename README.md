@@ -25,7 +25,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <h2>High-Level Deployment and Configuration Steps</h2>
 
 - Step 1 Set up Resources in Azure
-- Step 2 Ensure Connectivity between teh client and Domain Controller
+- Step 2 Ensure Connectivity between the Client and Domain Controller
 - Step 3 Install Active Directory
 - Step 4 Create an Admin and Normal User Account in AD
 - Step 5 Join Client-1 to your domian
@@ -39,7 +39,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-First, create the domain controller VM(Windows Server 2022) named "DC-1". Next, set the DC-1's NIC Private IP address to static. Now, Create the Client VM(Windows10) named "Client-1". Make sure to use the same resource group and Vnet that you created in the step before this one. Now, Ensure that both VMs are in teh same Vnet(this can be done by checking the topology with Network Watcher. 
+First, create the Domain Controller VM(Windows Server 2022) named "DC-1". Next, set the DC-1's NIC Private IP address to static. Now, Create the Client VM(Windows10) named "Client-1". Make sure to use the same resource group and Vnet that you created in the step before this one. Now, Ensure that both VMs are in teh same Vnet(this can be done by checking the topology with Network Watcher. 
 </p>
 <br />
 
