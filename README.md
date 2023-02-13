@@ -66,3 +66,31 @@ First, login to DC-1 and install Active Directory Domain Services. Next, promote
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
+First, Create an Organizational Unit(OU) called "_EMPLOYEES" in the Active Directory Users and Computers(ADUC). Next, create a new OU named "_ADMINS". Now, create a new employee named "Jane Doe" (same password) with the username of "jane_admin". Next, add "jane_admin" to the "Domain Admins" Securtiy Group. After, close the Remote Desktop connection to DC-1 and log back in as "mydomain.com\jane_admin". User jane_admin is your admin account from now on.
+</p>
+<br />
+
+<h2>Step5</h2>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+First, from the Azure Portal, set Client-1's DNS settings to the DC's Private IP address, restart Client-1 from the azure portal. Login to Client-1 using Remote Desktop as the original local admin(labuser) and join it to the domain (causes computer to restart). Next, login to the Domain Controller (Remote Desktop) and verify Client-1 shows up in Active Directory Users and Computers (ADUC) inside the "Computers" container on the root of the domain. Lastly, create a new OU named "_CLIENTS" and drag Client-1 into the new OU.
+</p>
+<br />
+
+<h2>Step6</h2>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+First, log into Client-1 as mydomain.com\jane_admin and open system properties. Click "Remote Desktop". Allow "domain users" access to remote desktop. This allows for normal, non-administrative users to be able to log into Client-1. Mimicing a situation such as a public library, or any similar situation. 
+</p>
+<br />
+
+<h2>Step7 Verify Success</h2>
+<p>
+<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+</p>
+<p>
+First, login to DC-1 as Jane_admin, open PowerShell_ISE as an administrator. Next, create a new File and paste the contents of the sript into it (). Then, run the script and obserce the accounts being created. Lastly, attempt to log into Client-1 with one of the accounts (take not of the passowrd in the script). If you are able to log in you have successfully deployed Active Directory and created users.
