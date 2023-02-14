@@ -35,7 +35,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-First, create the Domain Controller VM(Windows Server 2022) named "DC-1". Next, set the DC-1's NIC Private IP address to static. Now, Create the Client VM(Windows10) named "Client-1". Make sure to use the same resource group and Vnet that you created in the step before this one. Now, Ensure that both VMs are in teh same Vnet(this can be done by checking the topology with Network Watcher. 
+First, create the Domain Controller VM(Windows Server 2022) named "DC-1". Next, set the DC-1's NIC Private IP address to static. Now, Create the Client VM(Windows10) named "Client-1". Make sure to use the same resource group and Vnet that you created in the step before this one. Now, Ensure that both VMs are in the same Vnet(this can be done by checking the topology with Network Watcher). 
 </p>
 <br />
 
@@ -89,4 +89,4 @@ First, log into Client-1 as mydomain.com\jane_admin and open system properties. 
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-First, login to DC-1 as Jane_admin, open PowerShell_ISE as an administrator. Next, create a new File and paste the contents of the sript into it (). Then, run the script and obserce the accounts being created. Lastly, attempt to log into Client-1 with one of the accounts (take not of the passowrd in the script). If you are able to log in you have successfully deployed Active Directory and created users.
+First, login to DC-1 as Jane_admin, open PowerShell_ISE as an administrator. Next, create a new File and paste the contents of the sript into it (https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1). Then, run the script and observe the accounts being created. Lastly, attempt to log into Client-1 with one of the accounts (take note of the passowrd in the script). If you are able to log in you have successfully deployed Active Directory and created users.
