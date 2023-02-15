@@ -35,7 +35,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-First, create the Domain Controller VM(Windows Server 2022) named "DC-1". Next, set the DC-1's NIC Private IP address to static. Now, Create the Client VM(Windows10) named "Client-1". Make sure to use the same resource group and Vnet that you created in the step before this one. Now, Ensure that both VMs are in the same Vnet(this can be done by checking the topology with Network Watcher). 
+Create 2 VMs(virtual machines). One bieng the Domain Controller "DC-1" VM(Windows Server 2022), the other being the Client VM "Client -1"(Windows10). Both DC-1 and Clinet1 must be on the same V-net. Next, set DC-1's ping to static in azure.
 </p>
 <br />
 
@@ -44,7 +44,7 @@ First, create the Domain Controller VM(Windows Server 2022) named "DC-1". Next, 
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-First, login to Client-1 with Remote Desktop and ping DC-1's private IP address using the command prompt ping -t<ip address> (perpetual ping). Next, login to the DC-1 and enable ICMPv4 in the local windows firewall. Lastly, check back at Client-1 to see the ping succeed.
+ Use (Remote Desktop) Client 1 to ping DC-1's private IP address using the command prompt ping -t<ip address> (perpetual ping). In DC-1 type "wmf" into the windows search bar and open "Windows Defender Firewall with Advanced Security" --> Inbound Requests -->  ICMPv4 Echo Requests --> enable. Check back at Client-1 to see the ping succeed.
 </p>
 <br />
 
@@ -53,7 +53,7 @@ First, login to Client-1 with Remote Desktop and ping DC-1's private IP address 
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-First, login to DC-1 and install Active Directory Domain Services. Next, promote as a DC: Setup a new forest as "mydomain.com"(arbritrary). Lastly, restart and then log back into DC-1 as user: "mydomain.com\labuser.
+First, login to DC-1 and install Active Directory Domain Services by Server Manager --> add roles/features--> Active Directory domain Services--> Install--> Open. Once open, configure DC-1 and setup a new forest as "mydomain.com"(arbritrary). Lastly, restart and then log back into DC-1 as user: "mydomain.com\labuser".
 </p>
 <br />
 
@@ -62,7 +62,7 @@ First, login to DC-1 and install Active Directory Domain Services. Next, promote
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-First, Create an Organizational Unit(OU) called "_EMPLOYEES" in the Active Directory Users and Computers(ADUC). Next, create a new OU named "_ADMINS". Now, create a new employee named "Jane Doe" (same password) with the username of "jane_admin". Next, add "jane_admin" to the "Domain Admins" Securtiy Group. After, close the Remote Desktop connection to DC-1 and log back in as "mydomain.com\jane_admin". User jane_admin is your admin account from now on.
+Create 2 an Organizational Units(OU) named "_EMPLOYEES" and "_ADMINS" in the Active Directory Users and Computers(ADUC). Now, create a new employee "Jane". Next, add "jane" to the "Domain Admins" Securtiy Group by User-->Properties-->Member of, then type "domain_admins" into the text box--> apply. After, close the Remote Desktop connection to DC-1 and log back in as "mydomain.com\jane".
 </p>
 <br />
 
@@ -71,7 +71,7 @@ First, Create an Organizational Unit(OU) called "_EMPLOYEES" in the Active Direc
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-First, from the Azure Portal, set Client-1's DNS settings to the DC's Private IP address, restart Client-1 from the azure portal. Login to Client-1 using Remote Desktop as the original local admin(labuser) and join it to the domain (causes computer to restart). Next, login to the Domain Controller (Remote Desktop) and verify Client-1 shows up in Active Directory Users and Computers (ADUC) inside the "Computers" container on the root of the domain. Lastly, create a new OU named "_CLIENTS" and drag Client-1 into the new OU.
+From the Azure Portal, set Client-1's DNS settings to the DC's Private IP address, restart Client-1 from the azure portal. Login to Client-1 using Remote Desktop as the original local admin(labuser) and join it to the domain (causes computer to restart). 
 </p>
 <br />
 
@@ -80,7 +80,7 @@ First, from the Azure Portal, set Client-1's DNS settings to the DC's Private IP
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-First, log into Client-1 as mydomain.com\jane_admin and open system properties. Click "Remote Desktop". Allow "domain users" access to remote desktop. This allows for normal, non-administrative users to be able to log into Client-1. Mimicing a situation such as a public library, or any similar situation. 
+Login to Client-1 as mydomain.com\jane and allow Domain_users to connect to Client-1 by opening system properties-->Remote Desktop-->Change Users-->domain users--> This allows for normal, non-administrative users to be able to log into Client-1. 
 </p>
 <br />
 
@@ -89,4 +89,4 @@ First, log into Client-1 as mydomain.com\jane_admin and open system properties. 
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-First, login to DC-1 as Jane_admin, open PowerShell_ISE as an administrator. Next, create a new File and paste the contents of the sript into it (https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1). Then, run the script and observe the accounts being created. Lastly, attempt to log into Client-1 with one of the accounts (take note of the passowrd in the script). If you are able to log in you have successfully deployed Active Directory and created users.
+Login to DC-1 as Jane and open PowerShell_ISE as an administrator. Next, create a new File and paste this script (https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1) into the file. Run the script and observe the accounts being created. Lastly, attempt to log into Client-1 with one of the accounts (take note of the passowrd in the script). If you are able to log in you have been successful.
