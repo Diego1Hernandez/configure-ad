@@ -24,13 +24,13 @@ This tutorial outlines the implementation of on-premises Active Directory within
 - Step 2 Ensure Connectivity between the Client and Domain Controller
 - Step 3 Install Active Directory
 - Step 4 Create an Admin and Normal User Account in AD
-- Step 5 Join Client-1 to your domian
+- Step 5 Join Client-1 to your domain
 - Step 6 Setup Remote Desktop for non-administrative users on Client-1
-- Step 7 Create users and attempt to log into client-1 with one of the users (verifying your work)
+- Step 7 Create users and attempt to log into client-1 with one of the users
 
 <h2>Deployment and Configuration Steps</h2>
 
-<h2>Step1</h2>
+<h2>Step 1 Set up Resources in Azure</h2>
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
@@ -39,7 +39,7 @@ Create 2 VMs(virtual machines). One bieng the Domain Controller "DC-1" VM(Window
 </p>
 <br />
 
-<h2>Step2</h2>
+<h2>Step 2 Ensure Connectivity between the Client and Domain Controller</h2>
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
@@ -48,7 +48,7 @@ Create 2 VMs(virtual machines). One bieng the Domain Controller "DC-1" VM(Window
 </p>
 <br />
 
-<h2>Step3</h2>
+<h2>Step 3 Install Active Directory</h2>
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
@@ -57,7 +57,7 @@ First, login to DC-1 and install Active Directory Domain Services by Server Mana
 </p>
 <br />
 
-<h2>Step4</h2>
+<h2>Step 4 Create an Admin and Normal User Account in AD</h2>
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
@@ -66,7 +66,7 @@ Create 2 an Organizational Units(OU) named "_EMPLOYEES" and "_ADMINS" in the Act
 </p>
 <br />
 
-<h2>Step5</h2>
+<h2>Step 5 Join Client-1 to your domain</h2>
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
@@ -75,7 +75,7 @@ From the Azure Portal, set Client-1's DNS settings to the DC's Private IP addres
 </p>
 <br />
 
-<h2>Step6</h2>
+<h2>Step 6 Setup Remote Desktop for non-administrative users on Client-1</h2>
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
@@ -84,7 +84,7 @@ Login to Client-1 as mydomain.com\jane and allow Domain_users to connect to Clie
 </p>
 <br />
 
-<h2>Step7 Verify Success</h2>
+<h2>Step 7 Create users and attempt to log into client-1 with one of the users</h2>
 <p>
 <img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
