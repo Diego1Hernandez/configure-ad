@@ -42,9 +42,9 @@ Create 2 VMs(virtual machines). One bieng the Domain Controller "DC-1" VM(Window
 
 <h2>Step 2 Ensure Connectivity between the Client and Domain Controller</h2>
 <p>
-<img src="https://i.imgur.com/4mBTVQP.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/INK0Uo3.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/pNpwrU0.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/WWRMPdx.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
  Use Client-1 to ping DC-1's private IP address using the command prompt ping -t<ip address> (perpetual ping),see request timeout. In DC-1 type "wmf" into the windows search bar and open "Windows Defender Firewall with Advanced Security" --> Inbound Requests -->  ICMPv4 Echo Requests --> enable. Check back at Client-1 to see the ping succeed.
@@ -53,9 +53,9 @@ Create 2 VMs(virtual machines). One bieng the Domain Controller "DC-1" VM(Window
 
 <h2>Step 3 Install Active Directory</h2>
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/88y6fPh.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/pqZoLBG.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/HKUlhtC.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 Login to DC-1 and install Active Directory Domain Services by Server Manager --> add roles/features--> Active Directory domain Services--> Install--> Open. Once open, configure DC-1 and setup a new forest as "mydomain.com"(arbritrary). Lastly, restart and then log back into DC-1 as : "mydomain.com\user".
