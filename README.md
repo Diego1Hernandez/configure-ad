@@ -74,8 +74,8 @@ Create 2 an Organizational Units(OU) named "_EMPLOYEES" and "_ADMINS" in the Act
 
 <h2>Step 5 Join Client-1 to your domain</h2>
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/MGzfLlz.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://i.imgur.com/YJ0qK8m.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 From the Azure Portal, set Client-1's DNS settings to DC-1's Private IP address, then restart Client-1 from the azure portal. Login to Client-1 using Remote Desktop as the original local admin(user). Join Client-1 to DC-1's domain by System-->Rename Computer/Domain Changes--> and changing the domain to "domain.com". Use user "jane" to give permission (causes computer to restart). 
@@ -84,8 +84,7 @@ From the Azure Portal, set Client-1's DNS settings to DC-1's Private IP address,
 
 <h2>Step 6 Setup Remote Desktop for non-administrative users on Client-1</h2>
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/oJicl38.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 Login to Client-1 as mydomain.com\jane and allow Domain_users to connect to Client-1 by opening system properties-->Remote Desktop-->Change Users-->domain users--> apply. This allows for normal, non-administrative users to be able to log into Client-1. 
@@ -94,8 +93,8 @@ Login to Client-1 as mydomain.com\jane and allow Domain_users to connect to Clie
 
 <h2>Step 7 Create users and attempt to log into client-1 with one of the users</h2>
 <p>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-<img src="https://i.imgur.com/DJmEXEB.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/o2PuHi3.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+<img src="https://imgur.com/SyMK8LU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
 Login to DC-1 as Jane and open PowerShell_ISE as an administrator. Next, create a new File and paste this script (https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1) into the file. Run the script and observe the accounts being created. Lastly, attempt to log into Client-1 with one of the accounts (take note of the passowrd in the script). If you are able to log in you have been successful.
