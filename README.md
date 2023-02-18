@@ -36,7 +36,7 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <img src="https://i.imgur.com/LdJBwfj.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Create 2 VMs(virtual machines). One bieng the Domain Controller "DC-1" VM(Windows Server 2022), the other being the Client VM "Client -1"(Windows10). Both DC-1 and Cliet-1 must be on the same V-net. Next, set DC-1's ping to static in azure.
+Create 2 VMs(virtual machines). One bieng the Domain Controller "DC-1" VM(Windows Server 2022), the other being the Client VM "Client -1"(Windows10). Both DC-1 and Client-1 must be on the same V-net. Next, set DC-1's ping to static in azure.
 </p>
 <br />
 
