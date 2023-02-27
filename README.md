@@ -62,25 +62,40 @@ In Windows Defender Firewall with Advanced Security -> Inbound Requests -> ICMPv
 <h2>Step 3| Install Active Directory</h2>
 <p>
 <img src="https://i.imgur.com/J1naUid.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+In DC-1 Install Active Directory Domain Services. 
+Server Manager -> add roles/features--> Active Directory Domain Services -> Install -> Open
+
 <img src="https://i.imgur.com/gtiixwV.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+Now configure DC-1 and add a new forest with the root domain name of "mydomain.com".
+
+
 <img src="https://i.imgur.com/kNJQ3xe.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+Restart and log back into DC-1 as : "mydomain.com\user".
 </p>
 <p>
-Login to DC-1 and install Active Directory Domain Services by Server Manager --> add roles/features--> Active Directory domain Services--> Install--> Open. Once open, configure DC-1 and setup a new forest as "mydomain.com"(arbritrary). Lastly, restart and then log back into DC-1 as : "mydomain.com\user".
-</p>
+
 <br />
 
-<h2>Step 4 Create an Admin and Normal User Account in AD</h2>
+<h2>Step 4| Create an Administrator Account and Normal User Account in AD</h2>
 <p>
 <img src="https://i.imgur.com/5dOKfce.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+In Active Directory Useres and Computers create two Organizational Units(OU) named "_EMPLOYEES" and "_ADMINS"
+
 <img src="https://i.imgur.com/cCZLdGx.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+Create a new employee "Jane". Add "Jane" to the Domain Admins group
+User -> Properties -> Member of -> type "domain_admins" into the text box -> apply
+Close the Remote Desktop connection to DC-1 and reconnect into DC-1 as "mydomain\Jane"
 </p>
-<p>
-Create 2 an Organizational Units(OU) named "_EMPLOYEES" and "_ADMINS" in the Active Directory Users and Computers(ADUC). Now, create a new employee "jane". Next, add "jane" to the "Domain Admins" Securtiy Group by User-->Properties-->Member of, then type "domain_admins" into the text box--> apply. After, close the Remote Desktop connection to DC-1 and log back in as "mydomain.com\jane".
+
 </p>
 <br />
 
-<h2>Step 5 Join Client-1 to your domain</h2>
+<h2>Step 5| Join Client-1 to your domain</h2>
 <p>
 <img src="https://i.imgur.com/QyhLxg5.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <img src="https://i.imgur.com/LSpaLjJ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
