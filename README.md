@@ -98,19 +98,25 @@ Close the Remote Desktop connection to DC-1 and reconnect into DC-1 as "mydomain
 <h2>Step 5| Join Client-1 to your domain</h2>
 <p>
 <img src="https://i.imgur.com/QyhLxg5.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+In Azure, set Client-1's DNS settings to DC-1's Private IP address. Restart Client-1.
+
 <img src="https://i.imgur.com/LSpaLjJ.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
-</p>
-<p>
-From the Azure Portal, set Client-1's DNS settings to DC-1's Private IP address, then restart Client-1 from the azure portal. Login to Client-1 using Remote Desktop as the original local admin(user). Join Client-1 to DC-1's domain by System-->Rename Computer/Domain Changes--> and changing the domain to "domain.com". Use user "jane" to give permission (causes computer to restart). 
+
+In Client-1 join to DC-1's domain.
+System -> Rename Computer/Domain Changes -> and change the domain to "domain.com".
+When prompted user "Jane"'s credentials to give permission to Client-1. Client-1 will now restart.
+
 </p>
 <br />
 
-<h2>Step 6 Setup Remote Desktop for non-administrative users on Client-1</h2>
+<h2>Step 6| Setup Remote Desktop for non-administrative users on Client-1</h2>
 <p>
 <img src="https://i.imgur.com/LA9y6Si.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Login to Client-1 as mydomain.com\jane and allow Domain_users to connect to Client-1 by opening system properties-->Remote Desktop-->Change Users-->domain users--> apply. This allows for normal, non-administrative users to be able to log into Client-1. 
+Login to Client-1 as mydomain.com\jane and allow Domain_users to connect to Client-1.
+System Properties -> Remote Desktop -> Change Users -> domain users -> apply. This allows for normal, non-administrative users to be able to log into Client-1. 
 </p>
 <br />
 
@@ -120,4 +126,4 @@ Login to Client-1 as mydomain.com\jane and allow Domain_users to connect to Clie
 <img src="https://imgur.com/SyMK8LU.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Login to DC-1 as Jane and open PowerShell_ISE as an administrator. Next, create a new File and paste this script (https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1) into the file. Run the script and observe the accounts being created. Lastly, attempt to log into Client-1 with one of the accounts (take note of the passowrd in the script). If you are able to log in you have been successful.
+Login to DC-1 as Jane and open PowerShell_ISE as an administrator. Next, create a new File and paste this script (https://github.com/joshmadakor1/AD_PS/blob/master/Generate-Names-Create-Users.ps1) into the file. Run the script and observe the accounts being created. Lastly, attempt to log into Client-1 with one of the accounts (take note of the password in the script). If you are able to log in you have been successful in setting up active directory and allowing users to RDP into your DC-1. 
