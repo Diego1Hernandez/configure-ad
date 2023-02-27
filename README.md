@@ -52,7 +52,7 @@ In Client-1, use the command terminal to ping DC-1's private IP address. Use thi
 <img src="https://i.imgur.com/klRKCUr.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 
 Now we will disable the firewall. In DC-1 open "Windows Defender Firewall with Advanced Security". 
-In Windows Defender Firewall with Advanced Security -> Inbound Requests -> ICMPv4 Echo Requests -> Enable. Now, in Client-1 verify that the perpetual ping you started earlier is no longer timingout.
+In Windows Defender Firewall with Advanced Security -> Inbound Requests -> ICMPv4 Echo Requests -> Enable. Now, in Client-1 verify that the perpetual ping you started earlier is no longer timing out.
 
 <img src="https://i.imgur.com/kaOazQM.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
