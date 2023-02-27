@@ -30,11 +30,12 @@ This tutorial outlines the implementation of on-premises Active Directory within
 
 <h2>Deployment and Configuration Steps</h2>
 
-<h2>Step 1 Set up Resources in Azure</h2>
+<h2>Step 1| Set up your resources in Azure</h2>
 <p>
 <img src="https://i.imgur.com/4BaoTfw.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
- In Azure create 2 Virtual Machines(VMs). One will be "DC-1" or Domain Controller using Windows Server 2022, the other "Client-1" or Client on Windows 10. 
- 
+
+In Azure create 2 Virtual Machines(VMs). One will be "DC-1" or Domain Controller using Windows Server 2022, the other "Client-1" or Client on Windows 10. 
+ <br />
 <img src="https://i.imgur.com/MhhXSW8.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
@@ -42,18 +43,23 @@ Make sure both VMs are on the same V-net. In azure set DC-1's ping assignment to
 </p>
 <br />
 
-<h2>Step 2 Ensure Connectivity between the Client and Domain Controller</h2>
+<h2>Step 2| Ensure Connectivity between the Client and Domain Controller</h2>
 <p>
 <img src="https://i.imgur.com/B331X9L.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+In Client-1, use the command terminal to ping DC-1's private IP address. Use this prompt ping -t<DC-1's Private IP>. The Request should timeout due to DC-1's firewall.
+
 <img src="https://i.imgur.com/klRKCUr.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+
+Now we will disable the firewall. In DC-1 open "Windows Defender Firewall with Advanced Security". 
+In Windows Defender Firewall with Advanced Security -> Inbound Requests -> ICMPv4 Echo Requests -> Enable. Now, in Client-1 verify that the perpetual ping you started earlier is no longer timingout.
+
 <img src="https://i.imgur.com/kaOazQM.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
-<p>
- Use Client-1 to ping DC-1's private IP address using the command prompt ping -t<ip address> (perpetual ping),see request timeout. In DC-1 type "wmf" into the windows search bar and open "Windows Defender Firewall with Advanced Security" --> Inbound Requests -->  ICMPv4 Echo Requests --> enable. Check back at Client-1 to see the ping succeed.
-</p>
+
 <br />
 
-<h2>Step 3 Install Active Directory</h2>
+<h2>Step 3| Install Active Directory</h2>
 <p>
 <img src="https://i.imgur.com/J1naUid.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 <img src="https://i.imgur.com/gtiixwV.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
