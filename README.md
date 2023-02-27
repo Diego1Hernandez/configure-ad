@@ -33,10 +33,12 @@ This tutorial outlines the implementation of on-premises Active Directory within
 <h2>Step 1 Set up Resources in Azure</h2>
 <p>
 <img src="https://i.imgur.com/4BaoTfw.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
+ In Azure create 2 Virtual Machines(VMs). One will be "DC-1" or Domain Controller using Windows Server 2022, the other "Client-1" or Client on Windows 10. 
+ 
 <img src="https://i.imgur.com/MhhXSW8.png" height="80%" width="80%" alt="Disk Sanitization Steps"/>
 </p>
 <p>
-Create 2 VMs(virtual machines). One bieng the Domain Controller "DC-1" VM(Windows Server 2022), the other being the Client VM "Client -1"(Windows10). Both DC-1 and Client-1 must be on the same V-net. Next, set DC-1's ping to static in azure.
+Make sure both VMs are on the same V-net. In azure set DC-1's ping assignment to static.
 </p>
 <br />
 
